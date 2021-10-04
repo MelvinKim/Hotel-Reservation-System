@@ -31,8 +31,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**").permitAll()
             .and()
                 .formLogin()
-            //redirect on success
-                .defaultSuccessUrl("/api/v1/hello", true);
+            //redirect on success --> Not working come back to it
+                .defaultSuccessUrl("/homepage.html", true);
     }
 
     //password encoder
