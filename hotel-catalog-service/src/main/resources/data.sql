@@ -19,6 +19,8 @@ CREATE TABLE `payment` (
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `type` VARCHAR(20) DEFAULT NULL,
+    `user_id` int(11) NOT NULL,
+    `room_id` int(11) NOT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -29,6 +31,8 @@ CREATE TABLE `review` (
     `review` VARCHAR(255) DEFAULT NULL,
     `posted_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `user_id` int(11) NOT NULL,
+    `room_id` int(11) NOT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -38,6 +42,8 @@ CREATE TABLE `reservation` (
     `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `expire_date` DATETIME NOT NULL,
+    `room_id` int(11) NOT NULL,
+    `user_id` int(11) NOT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -50,6 +56,7 @@ CREATE TABLE `room` (
     `description` VARCHAR(255) DEFAULT NULL,
     `image_url` VARCHAR(255) DEFAULT NULL,
     `status` BOOLEAN NOT NULL DEFAULT 1,
+    `user_id` int(11) NOT NULL,
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
@@ -64,3 +71,10 @@ INSERT INTO `room` VALUES
     (8, 'Sports Road Apartment', 50, 'A place to be and relax', 'https://cf.bstatic.com/xdata/images/hotel/square600/251132954.webp?k=0f3b56a572033fe32a9c22fda72815c1c59373b709df5746f9676056c02f8d90&o=&s=1', 1),
     (9, 'GreenVale Hotel', 67, 'Offers accommodation with private parking', 'https://cf.bstatic.com/xdata/images/hotel/square600/315305704.webp?k=42d4de399b8ca8d0eee67d754d5ddde412a75ab2d2eaee671c41fb2112433206&o=&s=1', 1),
     (10, 'Mimosa Court Apartments', 95, 'located just 500 metres from Royal Nairobi Golf Club', 'https://cf.bstatic.com/xdata/images/hotel/square600/140181824.webp?k=3499612c104ef3a2b4cce138f8bab46de635f394d7ce5de6ae9be71fb4eaf086&o=&s=1', 1);
+
+INSERT INTO `user` VALUES
+    (1, "Melvin", "Kimathi", "melvin@gmail.com", "Nairobi", 0),
+    (2, "Kelvin", "Kimathi", "kelvin@gmail.com", "Nairobi", 0),
+    (3, "Brian", "Mwangi", "brian@gmail.com", "Nairobi", 0),
+    (4, "Jane", "Brown", "jane@gmail.com", "Nairobi", 0),
+    (5, "Chris", "Kirubi", "chris@gmail.com", "Nairobi", 0);
