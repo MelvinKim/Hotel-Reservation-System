@@ -3,7 +3,7 @@
 pipeline {
     ageny any
     tools {
-        maven 'Maven'
+        maven 'Maven-3.8'
     }
 
     stages{
